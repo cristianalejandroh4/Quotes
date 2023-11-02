@@ -94,7 +94,7 @@ namespace Quote
                 tourQuotes = tourQuotes.Where(w => selectedServicesCodes.Contains(w.ContractService.ServiceCode)).ToList();
             }
 
-            var baseSelectedQuote = tourQuotes.First();
+            var baseSelectedQuote = tourQuotes.Count() > 0 ? tourQuotes.First() : new TourQuote();
             var margin = .25;
             TourCalculatedQuote calculatedQuote = null;
             if (request.RetrieveOptions.GetCalculatedQuote)
